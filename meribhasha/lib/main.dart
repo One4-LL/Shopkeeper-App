@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:meribhasha/Screens/front.dart';
 import 'package:meribhasha/Screens/qrgen.dart';
+import 'package:meribhasha/Screens/saledetails.dart';
+import 'package:meribhasha/Screens/udhaar.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,6 +20,8 @@ class MyApp extends StatelessWidget {
         routes: {
           qrCode.id: (context) => qrCode(),
           FrontPage.id: (context) => FrontPage(),
+          SaleDetails.id: (context) => SaleDetails(),
+          Udhaar.id: (context) => Udhaar(),
         }
 //      home: MyHomePage(title: 'Flutter Demo Home Page'),
         );

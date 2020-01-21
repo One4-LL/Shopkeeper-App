@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meribhasha/Components/ReusableCard.dart';
 import 'package:meribhasha/Screens/front.dart';
+import 'package:meribhasha/Screens/saledetails.dart';
+import 'package:meribhasha/Utilities/translateOrders.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 import '../constants.dart';
@@ -14,6 +16,13 @@ class qrCode extends StatefulWidget {
 }
 
 class _qrCodeState extends State<qrCode> {
+  static TranslateOrders traslateOrders = TranslateOrders();
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,6 +46,13 @@ class _qrCodeState extends State<qrCode> {
               style: kTitleResult,
             ),
           ),
+          Text(
+            'SCAN  ME',
+            style: TextStyle(
+              letterSpacing: 7.0,
+              fontSize: 20,
+            ),
+          ),
           ReusableCard(
             colour: kActiveCardColor,
             cardChild: QrImage(
@@ -47,22 +63,45 @@ class _qrCodeState extends State<qrCode> {
               size: 300.0,
             ),
           ),
-          OutlineButton(
-            onPressed: () => {
-              Navigator.pushNamed(context, FrontPage.id),
-            },
-            disabledBorderColor: Colors.cyanAccent,
-            focusColor: Colors.black,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              OutlineButton(
+//                onPressed: () async => {
+//                  await print(traslateOrders.getTranslatedOrders().toString()),
+                onPressed: () => {
+                  Navigator.pushNamed(context, FrontPage.id),
+                },
+                disabledBorderColor: Colors.cyanAccent,
+                focusColor: Colors.black,
 //                      textColor: Colors.white,
-            borderSide: BorderSide(
-              color: Colors.cyan,
-              width: 3.0,
-            ),
-            child: Text(
-              "Go to Orders",
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
+                borderSide: BorderSide(
+                  color: Colors.cyan,
+                  width: 3.0,
+                ),
+                child: Text(
+                  "Go to Orders",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+              OutlineButton(
+                onPressed: () => {
+                  Navigator.pushNamed(context, SaleDetails.id),
+                },
+                disabledBorderColor: Colors.cyanAccent,
+                focusColor: Colors.black,
+//                      textColor: Colors.white,
+                borderSide: BorderSide(
+                  color: Colors.cyan,
+                  width: 3.0,
+                ),
+                child: Text(
+                  "Go to Sales",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ],
+          )
         ],
       ),
     );

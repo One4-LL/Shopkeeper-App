@@ -40,7 +40,7 @@ const kOrderStyle = TextStyle(
 //);
 //
 const kOrderText = TextStyle(
-  fontSize: 14.0,
+  fontSize: 12.8,
   color: Colors.white,
 );
 const kItemsStyle = TextStyle(
